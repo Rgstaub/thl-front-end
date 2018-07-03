@@ -1,6 +1,6 @@
 const Get = (url) => {
   
-  return fetch(url, {
+  return fetch(`http://api.teamhearthleague.com/${url}`, {
     //body: JSON.stringify(data), // must match 'Content-Type' header
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'include', // include, same-origin, *omit
