@@ -1,6 +1,6 @@
 const Get = (url) => {
   
-  return fetch(`https://api.teamhearthleague.com/${url}`, {
+  return fetch(`http://api.teamhearthleague.com/${url}`, {
     //body: JSON.stringify(data), // must match 'Content-Type' header
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'include', // include, same-origin, *omit
@@ -9,7 +9,7 @@ const Get = (url) => {
       'content-type': 'application/json'
     },
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, cors, *same-origin
+    mode: 'no-cors', // no-cors, cors, *same-origin
     redirect: 'follow', // manual, *follow, error
     referrer: 'no-referrer', // *client, no-referrer
   }).then(response => {
