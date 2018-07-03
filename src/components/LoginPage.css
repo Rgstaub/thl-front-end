@@ -1,0 +1,17 @@
+.login-page {
+  width: auto;
+  padding: 50px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+
+.login-button[disabled] {
+  background-color: #F2F2F2
+}
+
+.login-button:hover {
+  background-color: #13176d;
+}
