@@ -9,7 +9,7 @@ const Get = (url) => {
       'content-type': 'application/json'
     },
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    mode: 'no-cors', // no-cors, cors, *same-origin
+    mode: 'cors', // no-cors, cors, *same-origin
     redirect: 'follow', // manual, *follow, error
     referrer: 'no-referrer', // *client, no-referrer
   }).then(response => {
