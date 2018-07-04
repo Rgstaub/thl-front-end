@@ -67,7 +67,7 @@ class App extends Component {
       } else {
         this.setState({currentPage: 'register'})
       }
-    })
+    }).catch( err => console.log(err))
   }
   
 
