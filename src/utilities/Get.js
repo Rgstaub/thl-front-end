@@ -5,6 +5,7 @@ const Get = (url) => {
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'include', // include, same-origin, *omit
     headers: {
+      'Origin': 'https://thl-front-end.herokuapp.com',
       'user-agent': 'Mozilla/4.0 MDN Example',
       'content-type': 'application/json',
       'access-control-allow-origin': 'https://thl-back-end.herokuapp.com/'
