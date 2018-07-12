@@ -6,9 +6,9 @@ const Get = (url) => {
     credentials: 'include', // include, same-origin, *omit
     headers: {
       'Origin': 'https://thl-front-end.herokuapp.com',
-      'user-agent': 'Mozilla/4.0 MDN Example',
+      'Access-Control-Request-Headers': 'X-Custom-Header',
       'content-type': 'application/json',
-      'access-control-allow-origin': 'https://thl-back-end.herokuapp.com/'
+
     },
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, cors, *same-origin
