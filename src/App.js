@@ -57,7 +57,7 @@ class App extends Component {
 
   componentDidMount() {
     Get('api/auth/welcome').then( response => {
-      console.log(response);
+      console.log('page load authentication response:\n', response);
       if (response.status === 200) {
         this.setState({
           loggedIn: true, 
