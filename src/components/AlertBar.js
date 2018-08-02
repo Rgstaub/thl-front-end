@@ -24,9 +24,9 @@ const Bar = styled.div`
   z-index: -1000;
   font-size: 18px;
   font-family: 'roboto', sans-serif;
-  transition: height .3s;
+  transition: opacity 1s height .3s;
   ${props => props.isOpen ? 
-    `height: 35px;` 
+    `max-height: 500px; transition: opacity 1s height .3s;` 
     : `height: 0px; transition: opacity 1s height .3s; opacity: 0;`}
 `
 

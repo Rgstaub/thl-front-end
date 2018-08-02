@@ -84,18 +84,29 @@ export default class RegisterPage extends React.Component {
       password: this.state.password
     })
     .then( response => {
+      console.log("Response from handleSubmit:\n", response)
       this.handleResponse(response);
     })
     // .catch( err => console.log(err))
   }
 
   handleResponse = (response) => {
-    if (response.error) {
-      this.props.displayAlert(response.error.message, 2500, 'error')
+    console.log('\nResponse from Post:\n', response)
+    if (response && response.err) {
+      this.registrationErrors(response.err)
     } else {
       this.props.setPage('login')
       this.props.displayAlert('Registration successful', 2500, 'info')
     }
+  }
+
+  registrationErrors(errors) {
+    if (errors) {
+      errors.map( error => {
+        return <p>{error}</p>
+      })
+    } else return(<p>Better than nothing</p>)
+
   }
 
   
