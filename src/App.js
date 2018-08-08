@@ -8,6 +8,7 @@ import LeaguePage from './components/LeaguePage.js';
 import StreamsPage from './components/StreamsPage.js';
 import AccountPage from './components/AccountPage.js';
 import RegisterPage from './components/RegisterPage.js';
+import ForgotPasswordPage from './components/ForgotPasswordPage.js';
 import Get from './utilities/Get';
 import Post from './utilities/Post';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -103,7 +104,7 @@ class App extends Component {
       this.setState({
         currentPage: 'login',
         user: {}
-      })
+      })  
     })
   }
 
@@ -164,14 +165,16 @@ class App extends Component {
       return (
         <AccountPage {...this.state.user} />
       )
-    }
-    else if (this.state.currentPage === 'register') {
+    } else if (this.state.currentPage === 'forgot-password') {
       return (
-        <RegisterPage {...this.state.user} />
+        <ForgotPasswordPage 
+          setPage={this.setPage} 
+        />
       )
-    }  else if (this.state.currentPage === 'register') {
+    }
+    else {
       return (
-        <RegisterPage {...this.state.user}
+        <ForgotPasswordPage {...this.state.user}
           setPage={this.setPage} 
         />
       )
@@ -181,6 +184,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {this.state.currentPage}
         <CssBaseline />
         <AlertBar   
           text={this.state.alert.message}

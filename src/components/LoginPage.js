@@ -4,8 +4,8 @@ import React from 'react';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-import StyledButton from './StyledButton';
-import StyledLink from './StyledLink';
+import StyledButton from '../subcomponents/StyledButton';
+import StyledLink from '../subcomponents/StyledLink';
 import Typography from '@material-ui/core/Typography';
 import ('./LoginPage.css');
 
@@ -118,6 +118,7 @@ export default class LoginPage extends React.Component {
           <InputLabel>Password</InputLabel>
           <Input name='password' onChange={this.handlePasswordChange}/>
         </FormControl>
+        <StyledLink text="forgot password?" onClick={ () => this.props.setPage('forgot-password')} />
         <StyledButton
           className='login-button'
           onClick={this.handleSubmit}
@@ -126,6 +127,7 @@ export default class LoginPage extends React.Component {
         >
           Login
         </StyledButton>
+        
         <StyledLink 
           text='...or register'
           onClick={ () => this.props.setPage('register')}

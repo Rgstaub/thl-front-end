@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-import StyledButton from './StyledButton';
-import StyledLink from './StyledLink';
+import StyledButton from '../subcomponents/StyledButton';
+import StyledLink from '../subcomponents/StyledLink';
+import P from '../subcomponents/P';
 import Typography from '@material-ui/core/Typography';
 import Post from '../utilities/Post';
 import styled from 'styled-components';
@@ -26,7 +27,8 @@ export default class RegisterPage extends React.Component {
       confirmPassword: null,
       validConfirmPassword: false,
       bnetId: null,
-      validBnetId: false
+      validBnetId: false,
+      registrationErrors: []
     }
   
   }
@@ -93,19 +95,17 @@ export default class RegisterPage extends React.Component {
   handleResponse = (response) => {
     console.log('\nResponse from Post:\n', response)
     if (response && response.err) {
-      this.registrationErrors(response.err)
+      this.setState({registrationErrors: response.err})
     } else {
       this.props.setPage('login')
       this.props.displayAlert('Registration successful', 2500, 'info')
     }
   }
 
-  registrationErrors(errors) {
-    if (errors) {
-      errors.map( error => {
-        return <p>{error}</p>
-      })
-    } else return(<p>Better than nothing</p>)
+  registrationErrors() {
+    return this.state.registrationErrors.map( (error, index) => {
+      return <P key={index} text={error} style={'alert'}/>
+    })
 
   }
 
@@ -168,6 +168,7 @@ export default class RegisterPage extends React.Component {
           <InputLabel> Confirm Password</InputLabel>
           <Input name='passwordConfirm' type='password' onChange={this.handleConfirmPasswordChange}/>
         </FormControl>
+        {this.registrationErrors()}
         <StyledButton
           onClick={this.handleSubmit}
           disabled={!(this.state.validEmail && 
