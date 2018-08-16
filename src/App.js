@@ -69,16 +69,7 @@ class App extends Component {
         this.setState({currentPage: 'register'})
       }
     }).catch( err => console.log(err))
-  }
-  
-
-  // handleLeagueSelection(){
-  //   console.log("######################");
-  //   this.setState({currentLeague: {
-  //     name: 'Luke',
-  //     id: 'luke'
-  //   }})
-  // }
+  } 
 
   handleLogin(response) {
     this.setState({
