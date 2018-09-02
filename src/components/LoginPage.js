@@ -5,9 +5,8 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import StyledButton from '../subcomponents/StyledButton';
-import _Link from '../subcomponents/StyledLink';
+import _Link from '../subcomponents/_Link';
 import Typography from '@material-ui/core/Typography';
-//import { Link } from '../subcomponents/StyledLink';
 import ('./LoginPage.css');
 
 // LoginPage.propTypes = {

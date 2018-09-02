@@ -5,7 +5,7 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import StyledButton from '../subcomponents/StyledButton';
-import StyledLink from '../subcomponents/StyledLink';
+import _Link from '../subcomponents/_Link';
 import P from '../subcomponents/P';
 import Typography from '@material-ui/core/Typography';
 import Post from '../utilities/Post';
@@ -86,7 +86,7 @@ export default class ForgotPasswordPage extends React.Component {
           Submit
         </StyledButton>
         </form>
-        <StyledLink to='/login/'>Login</StyledLink>
+        <_Link to='/login/'>Login</_Link>
       </div>
     )
   }
