@@ -85,14 +85,8 @@ export default class ForgotPasswordPage extends React.Component {
         >
           Submit
         </StyledButton>
-        {this.errorMessage()}
         </form>
-        <StyledLink 
-            text={'...or log in'}
-            onClick={ () => this.props.setPage('login') }
-        >
-
-        </StyledLink>
+        <StyledLink to='/login/'>Login</StyledLink>
       </div>
     )
   }

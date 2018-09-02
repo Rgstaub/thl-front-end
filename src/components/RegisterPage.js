@@ -182,11 +182,8 @@ export default class RegisterPage extends React.Component {
         </StyledButton>
         {this.errorMessage()}
         </form>
-        <StyledLink 
-            text={'...or log in'}
-            onClick={ () => this.props.setPage('login') }
-        >
-
+        <StyledLink to='/login/'>
+          Login
         </StyledLink>
       </div>
     )

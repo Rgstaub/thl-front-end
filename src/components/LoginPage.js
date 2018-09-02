@@ -5,8 +5,9 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import StyledButton from '../subcomponents/StyledButton';
-import StyledLink from '../subcomponents/StyledLink';
+import _Link from '../subcomponents/StyledLink';
 import Typography from '@material-ui/core/Typography';
+//import { Link } from '../subcomponents/StyledLink';
 import ('./LoginPage.css');
 
 // LoginPage.propTypes = {
@@ -26,6 +27,7 @@ export default class LoginPage extends React.Component {
       failedLogin: false
     }
 
+    // TODO Refactor to use custom Post()
     this.postData = function(url, data) {
       // Default options are marked with *
       return fetch(url, {
@@ -118,7 +120,7 @@ export default class LoginPage extends React.Component {
           <InputLabel>Password</InputLabel>
           <Input name='password' onChange={this.handlePasswordChange}/>
         </FormControl>
-        <StyledLink text="forgot password?" onClick={ () => this.props.setPage('forgot-password')} />
+        <_Link to='/forgot-password/'>...forgot password?</_Link>
         <StyledButton
           className='login-button'
           onClick={this.handleSubmit}
@@ -127,11 +129,7 @@ export default class LoginPage extends React.Component {
         >
           Login
         </StyledButton>
-        
-        <StyledLink 
-          text='...or register'
-          onClick={ () => this.props.setPage('register')}
-        />
+        <_Link to='/register/'>Register</_Link>
         {this.errorMessage()}
         </form>
       </div>

@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
+
 import AlertBar from './components/AlertBar.js';
 import AppBar from './components/AppBar.js';
-import LoginPage from './components/LoginPage.js';
-import Dashboard from './components/Dashboard.js';
-import TeamPage from './components/TeamPage.js';
-import LeaguePage from './components/LeaguePage.js';
-import StreamsPage from './components/StreamsPage.js';
-import AccountPage from './components/AccountPage.js';
-import RegisterPage from './components/RegisterPage.js';
-import ForgotPasswordPage from './components/ForgotPasswordPage.js';
+
 import Get from './utilities/Get';
 import Post from './utilities/Post';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Main from './components/Main.js'
+
 
 
 class App extends Component {
@@ -119,63 +115,71 @@ class App extends Component {
 
   }
 
-  currentPage() {
-    if (this.state.loggedIn === false && this.state.currentPage ==='login') {
-      return (
-        <LoginPage 
-          handleLogin={this.handleLogin}
-          displayAlert={this.displayAlert} 
-          setPage={this.setPage} 
-        />
-      )
-    } else if (this.state.loggedIn === false) {
-      return (
-        <RegisterPage 
-          handleLogin={this.handleLogin} 
-          displayAlert={this.displayAlert}
-          setPage={this.setPage}/>
-      )
-    } else if (this.state.currentPage === 'dashboard') {
-      return (
-        <Dashboard {...this.state.user} />
-      )
-    } else if (this.state.currentPage === 'team') {
-      return (
-        <TeamPage {...this.state.user} />
-      )
-    } else if (this.state.currentPage === 'league') {
-      return (
-        <LeaguePage {...this.state.user} />
-      )
-    }
-    else if (this.state.currentPage === 'streams') {
-      return (
-        <StreamsPage {...this.state.user} />
-      )
-    } else if (this.state.currentPage === 'account') {
-      return (
-        <AccountPage {...this.state.user} />
-      )
-    } else if (this.state.currentPage === 'forgot-password') {
-      return (
-        <ForgotPasswordPage 
-          setPage={this.setPage} 
-        />
-      )
-    }
-    else {
-      return (
-        <ForgotPasswordPage {...this.state.user}
-          setPage={this.setPage} 
-        />
-      )
-    }
-  }
+  // Main() {
+  //   return (
+  //     <Switch>
+  //       <Route path='/login/' component={ <LoginPage /> }/>
+  //       <Route path='/register/' component={ <RegisterPage /> }/>
+  //     </Switch>
+  //   )
+  // }
+
+  // currentPage() {
+  //   if (this.state.loggedIn === false && this.state.currentPage ==='login') {
+  //     return (
+  //       <LoginPage 
+  //         handleLogin={this.handleLogin}
+  //         displayAlert={this.displayAlert} 
+  //         setPage={this.setPage} 
+  //       />
+  //     )
+  //   } else if (this.state.loggedIn === false) {
+  //     return (
+  //       <RegisterPage 
+  //         handleLogin={this.handleLogin} 
+  //         displayAlert={this.displayAlert}
+  //         setPage={this.setPage}/>
+  //     )
+  //   } else if (this.state.currentPage === 'dashboard') {
+  //     return (
+  //       <Dashboard {...this.state.user} />
+  //     )
+  //   } else if (this.state.currentPage === 'team') {
+  //     return (
+  //       <TeamPage {...this.state.user} />
+  //     )
+  //   } else if (this.state.currentPage === 'league') {
+  //     return (
+  //       <LeaguePage {...this.state.user} />
+  //     )
+  //   }
+  //   else if (this.state.currentPage === 'streams') {
+  //     return (
+  //       <StreamsPage {...this.state.user} />
+  //     )
+  //   } else if (this.state.currentPage === 'account') {
+  //     return (
+  //       <AccountPage {...this.state.user} />
+  //     )
+  //   } else if (this.state.currentPage === 'forgot-password') {
+  //     return (
+  //       <ForgotPasswordPage 
+          
+  //       />
+  //     )
+  //   }
+  //   else {
+  //     return (
+  //       <ForgotPasswordPage {...this.state.user}
+  //         setPage={this.setPage} 
+  //       />
+  //     )
+  //   }
+  // }
 
   render() {
     return (
       <div className="App">
-        {this.state.currentPage}
         <CssBaseline />
         <AlertBar   
           text={this.state.alert.message}
@@ -188,9 +192,7 @@ class App extends Component {
           handleNavSelection={this.handleNavSelection}
           {...this.state}
         />
-
-        {this.currentPage()}
-
+        <Main />
       </div>
     );
   }
