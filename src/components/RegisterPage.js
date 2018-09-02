@@ -5,7 +5,7 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import StyledButton from '../subcomponents/StyledButton';
-import _Link from '../subcomponents/_Link';
+import Link from '../subcomponents/Link';
 import P from '../subcomponents/P';
 import Typography from '@material-ui/core/Typography';
 import Post from '../utilities/Post';
@@ -182,9 +182,9 @@ export default class RegisterPage extends React.Component {
         </StyledButton>
         {this.errorMessage()}
         </form>
-        <_Link to='/login/'>
+        <Link to='/login/'>
           Login
-        </_Link>
+        </Link>
       </div>
     )
   }

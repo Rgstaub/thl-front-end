@@ -192,7 +192,7 @@ class App extends Component {
           handleNavSelection={this.handleNavSelection}
           {...this.state}
         />
-        <Main />
+        <Main {...this.state}/>
       </div>
     );
   }

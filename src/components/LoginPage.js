@@ -5,8 +5,10 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import StyledButton from '../subcomponents/StyledButton';
-import _Link from '../subcomponents/_Link';
+import Link from '../subcomponents/Link';
+import H1 from '../subcomponents/H1';
 import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
 import ('./LoginPage.css');
 
 // LoginPage.propTypes = {
@@ -109,7 +111,7 @@ export default class LoginPage extends React.Component {
   render() {
     return (
       <div className='login-page'>
-        <Typography variant='title'>Login</Typography>
+        <H1>Login</H1>
         <form>
         <FormControl className='input-group' fullWidth >
           <InputLabel>Email</InputLabel>
@@ -119,7 +121,7 @@ export default class LoginPage extends React.Component {
           <InputLabel>Password</InputLabel>
           <Input name='password' onChange={this.handlePasswordChange}/>
         </FormControl>
-        <_Link to='/forgot-password/'>...forgot password?</_Link>
+        <Link to='/forgot-password/'>...forgot password?</Link>
         <StyledButton
           className='login-button'
           onClick={this.handleSubmit}
@@ -128,7 +130,7 @@ export default class LoginPage extends React.Component {
         >
           Login
         </StyledButton>
-        <_Link to='/register/'>Register</_Link>
+        <Link to='/register/'>Register</Link>
         {this.errorMessage()}
         </form>
       </div>

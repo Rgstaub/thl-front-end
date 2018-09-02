@@ -11,6 +11,11 @@ import RegisterPage from './RegisterPage.js';
 import ForgotPasswordPage from './ForgotPasswordPage.js';
 
 const Main = (props) => {
+
+  const rootPage = () => {
+    
+  }
+
   return (
     <Switch>
       <Route path='/login/' component={ LoginPage }/>
