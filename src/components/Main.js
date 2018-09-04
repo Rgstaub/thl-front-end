@@ -12,13 +12,12 @@ import ForgotPasswordPage from './ForgotPasswordPage.js';
 
 const Main = (props) => {
 
-  const rootPage = () => {
-    
-  }
+
 
   return (
     <Switch>
-      <Route path='/login/' component={ LoginPage }/>
+      <Route exact path='/' component={ props.loggedIn ? Dashboard : RegisterPage }/>
+      <Route path='/login/' render={ props => <LoginPage {...props}/> } />
       <Route path='/register/' component={ RegisterPage }/>
       <Route path='/dashboard/' component={ Dashboard }/>
       <Route path='/team/' component={ TeamPage }/>
@@ -26,7 +25,6 @@ const Main = (props) => {
       <Route path='/league/' component={ LeaguePage }/>
       <Route path='/streams/' component={ StreamsPage }/>
       <Route path='/forgot-password/' component={ ForgotPasswordPage }/>
-
     </Switch>
   )
 }

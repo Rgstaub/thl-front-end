@@ -7,6 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import StyledButton from '../subcomponents/StyledButton';
 import Link from '../subcomponents/Link';
 import H1 from '../subcomponents/H1';
+import Post from '../utilities/Post'
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
 import ('./LoginPage.css');
@@ -28,37 +29,15 @@ export default class LoginPage extends React.Component {
       failedLogin: false
     }
 
-    // TODO Refactor to use custom Post()
-    this.postData = function(url, data) {
-      // Default options are marked with *
-      return fetch(url, {
-        body: JSON.stringify(data), // must match 'Content-Type' header
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, same-origin, *omit
-        headers: {
-          'user-agent': 'Mozilla/4.0 MDN Example',
-          'content-type': 'application/json'
-        },
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'same-origin', // no-cors, cors, *same-origin
-        redirect: 'follow', // manual, *follow, error
-        referrer: 'no-referrer', // *client, no-referrer
-      })
-      .then(response => {
-        if (response.status === 401) {
-          return {error: "Invalid email or password"}
-        } else return response.json();
-      })
-    }
   }
 
 
   handleEmailChange = (e) => {
-    this.setState({email: e.target.value})
+    this.setState({ email: e.target.value })
     if (this.validateEmail(e.target.value)) {
-      this.setState({validEmail: true})
+      this.setState({ validEmail: true })
     } else {
-      this.setState({validEmail: false})
+      this.setState({ validEmail: false })
     }
   }
 
@@ -70,20 +49,17 @@ export default class LoginPage extends React.Component {
   }
 
   handleSubmit = () => {
-    this.postData('login', {email: this.state.email, password: this.state.password})
+    console.log("\n\nBout to Post");
+    Post('/login', {email: this.state.email, password: this.state.password})
     .then( response => {
+      console.log("################# POST RESPONSE ################")
+      console.log(response)
       this.handleResponse(response);
     })
-    // .catch( err => console.log(err))
   }
 
   handleResponse = (response) => {
-    if (response.error) {
-      this.props.displayAlert(response.error, 2500, 'error')
-    } else {
-      this.setState({failedLogin: false})
-      this.props.handleLogin(response);
-    }
+    console.log(response);
   }
 
   

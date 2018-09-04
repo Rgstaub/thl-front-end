@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 // };
 
-const _Link = styled(Link)`
+const StyledLink = styled(Link)`
   cursor: pointer;
   font-family: 'roboto', sans-serif;
   color: #0B62A4;
@@ -20,6 +20,6 @@ const _Link = styled(Link)`
 
 export default (props) => {
   return(
-    <_Link {...props} />
+    <StyledLink {...props} />
   )
 }  

@@ -1,3 +1,10 @@
+const handleErrors = (response) => {
+  if (!response.ok) {
+    throw Error((response.statusText))
+  }
+  return response
+}
+
 const Post = (url, data) => {
 
   return fetch(url, {
@@ -12,13 +19,19 @@ const Post = (url, data) => {
     mode: 'same-origin', // no-cors, cors, *same-origin
     redirect: 'follow', // manual, *follow, error
     referrer: 'no-referrer', // *client, no-referrer
-  }).then( response => {
-    //console.log('POST Response:\n', response.json());
-    if (response.status === 200) {
-      return response.json()
-    } else return({err: {message: 'Non 200 status. fix this'}})
+  // }).then( response => {
+  //   //console.log('POST Response:\n', response.json());
+  //   if (response.status === 200) {
+  //     return response.json()
+  //   } else return({err: {message: 'Non 200 status. fix this'}})
     
+  }).then(handleErrors)
+  .then( response => {
+    return response.json()
   })
+  .catch( error => console.log(error))
 }
+
+
 
 export default Post;

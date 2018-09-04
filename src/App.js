@@ -70,7 +70,6 @@ class App extends Component {
   handleLogin(response) {
     this.setState({
       loggedIn: true, 
-      currentPage: 'dashboard',
       user: {...response}
     })
   }
@@ -181,6 +180,7 @@ class App extends Component {
     return (
       <div className="App">
         <CssBaseline />
+        {this.state.loggedIn.toString()}
         <AlertBar   
           text={this.state.alert.message}
           isOpen={this.state.alert.isOpen}
@@ -192,7 +192,10 @@ class App extends Component {
           handleNavSelection={this.handleNavSelection}
           {...this.state}
         />
-        <Main {...this.state}/>
+        <Main 
+          handleLogin={this.handleLogin}
+          {...this.state}
+        />
       </div>
     );
   }
